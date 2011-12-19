@@ -117,7 +117,8 @@ typedef struct framebuffer_device_t {
      * Returns 0 on success or -errno on error.
      */
     int (*post)(struct framebuffer_device_t* dev, buffer_handle_t buffer);
-
+    int (*lockBuffer)(struct framebuffer_device_t* dev, int index);
+    int numFramebuffers;
 
     /*
      * The (*compositionComplete)() method must be called after the
@@ -141,7 +142,13 @@ typedef struct framebuffer_device_t {
      */
     int (*enableScreen)(struct framebuffer_device_t* dev, int enable);
 
-    void* reserved_proc[6];
+    int (*orientationChanged) (struct framebuffer_device_t* dev, int);
+    int (*videoOverlayStarted) (struct framebuffer_device_t* dev, int);
+    int (*enableHDMIOutput) (struct framebuffer_device_t* dev, int);
+    int (*setActionSafeWidthRatio) (struct framebuffer_device_t* dev, float);
+    int (*setActionSafeHeightRatio) (struct framebuffer_device_t* dev, float);
+
+    void* reserved_proc[1];
 
 } framebuffer_device_t;
 

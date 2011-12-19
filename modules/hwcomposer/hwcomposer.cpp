@@ -85,6 +85,8 @@ static int hwc_set(hwc_composer_device_t *dev,
     //for (size_t i=0 ; i<list->numHwLayers ; i++) {
     //    dump_layer(&list->hwLayers[i]);
     //}
+    if(!dpy || !sur)
+        return 0;
 
     EGLBoolean sucess = eglSwapBuffers((EGLDisplay)dpy, (EGLSurface)sur);
     if (!sucess) {

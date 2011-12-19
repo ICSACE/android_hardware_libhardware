@@ -118,8 +118,13 @@ __BEGIN_DECLS
  *    O: Origin (x=0,y=0,z=0)
  *
  *
+<<<<<<< HEAD
  * SENSOR_TYPE_ORIENTATION
  * -----------------------
+=======
+ * Orientation
+ * ----------- 
+>>>>>>> 587669230e0a8184e247e5f6f086df22f95b7f3d
  * 
  * All values are angles in degrees.
  * 
@@ -155,8 +160,13 @@ __BEGIN_DECLS
  *  where the X axis is along the long side of the plane (tail to nose).
  *  
  *  
+<<<<<<< HEAD
  * SENSOR_TYPE_ACCELEROMETER
  * -------------------------
+=======
+ * Acceleration
+ * ------------
+>>>>>>> 587669230e0a8184e247e5f6f086df22f95b7f3d
  *
  *  All values are in SI units (m/s^2) and measure the acceleration of the
  *  device minus the force of gravity.
@@ -182,8 +192,13 @@ __BEGIN_DECLS
  *    gravity (-9.81 m/s^2).
  *    
  *    
+<<<<<<< HEAD
  * SENSOR_TYPE_MAGNETIC_FIELD
  * --------------------------
+=======
+ * Magnetic Field
+ * --------------
+>>>>>>> 587669230e0a8184e247e5f6f086df22f95b7f3d
  * 
  *  All values are in micro-Tesla (uT) and measure the ambient magnetic
  *  field in the X, Y and Z axis.
@@ -191,9 +206,14 @@ __BEGIN_DECLS
  *  Magnetic Field sensors return sensor events for all 3 axes at a constant
  *  rate defined by setDelay().
  *
+<<<<<<< HEAD
  * SENSOR_TYPE_GYROSCOPE
  * ---------------------
  *
+=======
+ * Gyroscope
+ * ---------
+>>>>>>> 587669230e0a8184e247e5f6f086df22f95b7f3d
  *  All values are in radians/second and measure the rate of rotation
  *  around the X, Y and Z axis.  The coordinate system is the same as is
  *  used for the acceleration sensor. Rotation is positive in the
@@ -205,8 +225,13 @@ __BEGIN_DECLS
  *  with the definition of roll given earlier.
  *  The range should at least be 17.45 rad/s (ie: ~1000 deg/s).
  *
+<<<<<<< HEAD
  * SENSOR_TYPE_PROXIMITY
  * ----------------------
+=======
+ * Proximity
+ * ---------
+>>>>>>> 587669230e0a8184e247e5f6f086df22f95b7f3d
  *
  * The distance value is measured in centimeters.  Note that some proximity
  * sensors only support a binary "close" or "far" measurement.  In this case,
@@ -214,14 +239,22 @@ __BEGIN_DECLS
  * less than maxRange in the "near" state.
  *
  * Proximity sensors report a value only when it changes and each time the
+<<<<<<< HEAD
  * sensor is enabled.
  *
  * SENSOR_TYPE_LIGHT
  * -----------------
+=======
+ * sensor is enabled. setDelay() is ignored.
+ *
+ * Light
+ * -----
+>>>>>>> 587669230e0a8184e247e5f6f086df22f95b7f3d
  *
  * The light sensor value is returned in SI lux units.
  *
  * Light sensors report a value only when it changes and each time the
+<<<<<<< HEAD
  * sensor is enabled.
  *
  * SENSOR_TYPE_PRESSURE
@@ -252,6 +285,45 @@ __BEGIN_DECLS
  * SENSOR_TYPE_ROTATION_VECTOR
  * ---------------------------
  *
+=======
+ * sensor is enabled. setDelay() is ignored.
+ *
+ * Pressure
+ * --------
+ *
+ * The pressure sensor value is returned in hectopascal (hPa)
+ *
+ * Pressure sensors report events at a constant rate defined by setDelay().
+ *
+ * Gyro
+ * --------
+ *
+ * The gyroscope sensor values are returned in degrees per second (dps)
+ *
+ * Gyroscope sensor report events at a constant rate defined by setDelay().
+ *
+ * Gravity
+ * -------
+ * A gravity output indicates the direction of and magnitude of gravity in the devices's
+ * coordinates.  On Earth, the magnitude is 9.8.  Units are m/s^2.  The coordinate system
+ * is the same as is used for the acceleration sensor.
+ * When the device is at rest, the output of the gravity sensor should be identical
+ * to that of the accelerometer.
+ *
+ * Linear Acceleration
+ * -------------------
+ * Indicates the linear acceleration of the device in device coordinates, not including gravity.
+ * This output is essentially Acceleration - Gravity.  Units are m/s^2.  The coordinate system is
+ * the same as is used for the acceleration sensor.
+ * The output of the accelerometer, gravity and  linear-acceleration sensors must obey the
+ * following relation:
+ *
+ *   acceleration = gravity + linear-acceleration
+ *
+ *
+ * Rotation Vector
+ * ---------------
+>>>>>>> 587669230e0a8184e247e5f6f086df22f95b7f3d
  * A rotation vector represents the orientation of the device as a combination
  * of an angle and an axis, in which the device has rotated through an angle
  * theta around an axis <x, y, z>. The three elements of the rotation vector
@@ -283,23 +355,40 @@ __BEGIN_DECLS
  *   sensors_event_t.data[3] =   cos(theta/2)
  *
  *
+<<<<<<< HEAD
  * SENSOR_TYPE_RELATIVE_HUMIDITY
  * ------------------------------
+=======
+ * Relative Humidity
+ * -----------------
+>>>>>>> 587669230e0a8184e247e5f6f086df22f95b7f3d
  *
  * A relative humidity sensor measures relative ambient air humidity and
  * returns a value in percent.
  *
  * Relative humidity sensors report a value only when it changes and each
+<<<<<<< HEAD
  * time the sensor is enabled.
  *
  *
  * SENSOR_TYPE_AMBIENT_TEMPERATURE
  * -------------------------------
+=======
+ * time the sensor is enabled. setDelay() is ignored.
+ *
+ *
+ * Ambient Temperature
+ * -------------------
+>>>>>>> 587669230e0a8184e247e5f6f086df22f95b7f3d
  *
  * The ambient (room) temperature in degree Celsius.
  *
  * Temperature sensors report a value only when it changes and each time the
+<<<<<<< HEAD
  * sensor is enabled.
+=======
+ * sensor is enabled. setDelay() is ignored.
+>>>>>>> 587669230e0a8184e247e5f6f086df22f95b7f3d
  *
  */
 
@@ -399,10 +488,16 @@ struct sensor_t {
     const char*     name;
     /* vendor of the hardware part */
     const char*     vendor;
+<<<<<<< HEAD
     /* version of the hardware part + driver. The value of this field
      * must increase when the driver is updated in a way that changes the
      * output of this sensor. This is important for fused sensors when the
      * fusion algorithm is updated.
+=======
+    /* version of the hardware part + driver. The value of this field is
+     * left to the implementation and doesn't have to be monotonically
+     * increasing.
+>>>>>>> 587669230e0a8184e247e5f6f086df22f95b7f3d
      */    
     int             version;
     /* handle that identifies this sensors. This handle is used to activate
@@ -446,10 +541,16 @@ struct sensors_poll_device_t {
 
     /**
      * Set the delay between sensor events in nanoseconds for a given sensor.
+<<<<<<< HEAD
      *
      * If the requested value is less than sensor_t::minDelay, then it's
      * silently clamped to sensor_t::minDelay unless sensor_t::minDelay is
      * 0, in which case it is clamped to >= 1ms.
+=======
+     * It is an error to set a delay inferior to the value defined by
+     * sensor_t::minDelay. If sensor_t::minDelay is zero, setDelay() is
+     * ignored and returns 0.
+>>>>>>> 587669230e0a8184e247e5f6f086df22f95b7f3d
      *
      * @return 0 if successful, < 0 on error
      */
