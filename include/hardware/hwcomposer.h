@@ -80,8 +80,6 @@ enum {
      * by SurfaceFlinger (just as if compositionType was set to HWC_OVERLAY).
      */
     HWC_SKIP_LAYER = 0x00000001,
-<<<<<<< HEAD
-=======
     /*
      * HWC_LAYER_NOT_UPDATING is set by SurfaceFlnger to indicate that the HAL
      * that this layer is not updating. The HAL can use this to determine if it
@@ -94,7 +92,6 @@ enum {
     HWC_FLAGS_PRIVATE_1       = 0x20000000,
     HWC_FLAGS_PRIVATE_2       = 0x40000000,
     HWC_FLAGS_PRIVATE_3       = 0x80000000,
->>>>>>> 587669230e0a8184e247e5f6f086df22f95b7f3d
 };
 
 /*
@@ -175,12 +172,9 @@ typedef struct hwc_layer {
     /* blending to apply during composition */
     int32_t blending;
 
-<<<<<<< HEAD
-=======
     /* alpha value of the layer */
     int32_t alpha;
 
->>>>>>> 587669230e0a8184e247e5f6f086df22f95b7f3d
     /* area of the source to consider, the origin is the top-left corner of
      * the buffer */
     hwc_rect_t sourceCrop;
@@ -208,15 +202,11 @@ enum {
      * passed to (*prepare)() has changed by more than just the buffer handles.
      */
     HWC_GEOMETRY_CHANGED = 0x00000001,
-<<<<<<< HEAD
-=======
-
     /*
      * HWC_SKIP_COMPOSITION is set by the HWC to indicate to SurfaceFlinger to
      * skip composition for this iteration.
      */
     HWC_SKIP_COMPOSITION = 0x00000002
->>>>>>> 587669230e0a8184e247e5f6f086df22f95b7f3d
 };
 
 /*
@@ -317,7 +307,6 @@ typedef struct hwc_composer_device {
      * entire composition has been handled by SurfaceFlinger with OpenGL ES.
      * In this case, (*set)() behaves just like eglSwapBuffers().
      *
-<<<<<<< HEAD
      * dpy, sur, and list are set to NULL to indicate that the screen is
      * turning off. This happens WITHOUT prepare() being called first.
      * This is a good time to free h/w resources and/or power
@@ -327,9 +316,6 @@ typedef struct hwc_composer_device {
      * pixels behind all the layers in the list.
      * It is the responsibility of the hwcomposer module to make
      * sure black pixels are output (or blended from).
-     *
-=======
->>>>>>> 587669230e0a8184e247e5f6f086df22f95b7f3d
      * returns: 0 on success. An negative error code on error:
      *    HWC_EGL_ERROR: eglGetError() will provide the proper error code
      *    Another code for non EGL errors.
@@ -361,11 +347,7 @@ typedef struct hwc_composer_device {
      */
     void (*registerProcs)(struct hwc_composer_device* dev,
             hwc_procs_t const* procs);
-<<<<<<< HEAD
-
-=======
     void (*enableHDMIOutput)(struct hwc_composer_device *dev, bool enable);
->>>>>>> 587669230e0a8184e247e5f6f086df22f95b7f3d
     void* reserved_proc[6];
 
 } hwc_composer_device_t;
